@@ -47,7 +47,7 @@ public class Book {
 
 
 
-            File file = new File("\\newtext.txt");
+            File file = new File("D:/MyProjects/Book/newtext.txt");
             try {
                 //проверяем, что если файл не существует то создаем его
                 if(!file.exists()){
