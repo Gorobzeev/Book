@@ -77,6 +77,5 @@ public class Book {
         } catch(IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
