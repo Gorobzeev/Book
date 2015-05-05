@@ -17,6 +17,10 @@ public class Book {
         this.year = year;
     }
 
+    public String toString(){
+        return autor+" "+title+" "+year;
+    }
+
 
     public static void main(String[] args) throws IOException {
         ArrayList <String> list = new ArrayList<String>();
@@ -45,35 +49,34 @@ public class Book {
             Book book = new Book(parts[0],parts[1],year);
             books.add(book);
 
+        }
 
+        for ( Book c : books){
+            System.out.println(c);
+        }
 
-            File file = new File("D:/MyProjects/Book/newtext.txt");
-            try {
-                //проверяем, что если файл не существует то создаем его
-                if(!file.exists()){
-                    file.createNewFile();
-                }
+        File file = new File("D:/MyProjects/Book/newtext.txt");
+        try {
 
-                //PrintWriter обеспечит возможности записи в файл
-                PrintWriter out = new PrintWriter(file.getAbsoluteFile());
-
-                try {
-                    //Записываем текст у файл
-                    for (int y=0; y < list.size(); y++){
-                        out.print(list.get(y)+"\n");
-                    }
-
-                } finally {
-                    //После чего мы должны закрыть файл
-                    //Иначе файл не запишется
-                    out.close();
-                }
-            } catch(IOException e) {
-                throw new RuntimeException(e);
+            if(!file.exists()){
+                file.createNewFile();
             }
 
+            PrintWriter out = new PrintWriter(file.getAbsoluteFile());
+
+            try {
+
+                for (int y=0; y < books.size(); y++){
+                    out.print(books.get(y)+"\n");
+                }
+
+            } finally {
+
+                out.close();
+            }
+        } catch(IOException e) {
+            throw new RuntimeException(e);
         }
+
     }
-
-
 }
