@@ -18,7 +18,7 @@ public class Book {
     }
 
     public String toString(){
-        return autor+" "+title+" "+year;
+        return autor+";"+title+";"+year;
     }
 
 
